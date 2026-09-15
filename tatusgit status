@@ -1,0 +1,1068 @@
+ .gitignore                                         |    0
+ CMakeLists.txt                                     |  369 [32m++++[m
+ PROJECT_STATE.md                                   |    0
+ README.md                                          |    0
+ benchmarks/cuda_benchmark.cu                       |   89 [32m+[m
+ benchmarks/kernel_benchmark.cpp                    |  253 [32m+++[m
+ build/ALL_BUILD.vcxproj                            |  255 [32m+++[m
+ build/ALL_BUILD.vcxproj.filters                    |    8 [32m+[m
+ build/CMakeCache.txt                               |  632 [32m++++++[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ build/CMakeFiles/4.2.3/CMakeCCompiler.cmake        |   84 [32m+[m
+ build/CMakeFiles/4.2.3/CMakeCUDACompiler.cmake     |   90 [32m+[m
+ build/CMakeFiles/4.2.3/CMakeCXXCompiler.cmake      |  104 [32m+[m
+ .../4.2.3/CMakeDetermineCompilerABI_C.bin          |  Bin [31m0[m -> [32m53248[m bytes
+ .../4.2.3/CMakeDetermineCompilerABI_CUDA.bin       |  Bin [31m0[m -> [32m176128[m bytes
+ .../4.2.3/CMakeDetermineCompilerABI_CXX.bin        |  Bin [31m0[m -> [32m53248[m bytes
+ build/CMakeFiles/4.2.3/CMakeRCCompiler.cmake       |    6 [32m+[m
+ build/CMakeFiles/4.2.3/CMakeSystem.cmake           |   15 [32m+[m
+ .../4.2.3/CompilerIdC/CMakeCCompilerId.c           |  934 [32m+++++++++[m
+ build/CMakeFiles/4.2.3/CompilerIdC/CompilerIdC.exe |  Bin [31m0[m -> [32m14848[m bytes
+ .../4.2.3/CompilerIdC/CompilerIdC.vcxproj          |   72 [32m+[m
+ .../4.2.3/CompilerIdC/Debug/CMakeCCompilerId.obj   |  Bin [31m0[m -> [32m2286[m bytes
+ .../4.2.3/CompilerIdC/Debug/CompilerIdC.exe.recipe |   11 [32m+[m
+ .../Debug/CompilerIdC.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m668[m bytes
+ .../Debug/CompilerIdC.tlog/CL.read.1.tlog          |  Bin [31m0[m -> [32m552[m bytes
+ .../Debug/CompilerIdC.tlog/CL.write.1.tlog         |  Bin [31m0[m -> [32m312[m bytes
+ .../Debug/CompilerIdC.tlog/Cl.items.tlog           |    1 [32m+[m
+ .../CompilerIdC.tlog/CompilerIdC.lastbuildstate    |    2 [32m+[m
+ .../Debug/CompilerIdC.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m988[m bytes
+ .../Debug/CompilerIdC.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m3362[m bytes
+ .../Debug/CompilerIdC.tlog/link.secondary.1.tlog   |    1 [32m+[m
+ .../Debug/CompilerIdC.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m306[m bytes
+ .../4.2.3/CompilerIdCUDA/CMakeCUDACompilerId.cu    |  964 [32m+++++++++[m
+ .../4.2.3/CompilerIdCUDA/CompilerIdCUDA.exe        |  Bin [31m0[m -> [32m20480[m bytes
+ .../4.2.3/CompilerIdCUDA/CompilerIdCUDA.vcxproj    |   72 [32m+[m
+ .../x64/Debug/CMakeCUDACompilerId.cu.obj           |  Bin [31m0[m -> [32m80711[m bytes
+ .../Debug/CMakeCUDACompilerId.cu-1568170953.deps   |   82 [32m+[m
+ .../Debug/CMakeCUDACompilerId.cu.cache             |   58 [32m+[m
+ .../CompilerIdCUDA/Debug/CompilerIdCUDA.exe.recipe |   11 [32m+[m
+ .../CompilerIdCUDA.lastbuildstate                  |    2 [32m+[m
+ .../CompilerIdCUDA.tlog/CudaCompile.read.1u.tlog   |  Bin [31m0[m -> [32m15292[m bytes
+ .../CompilerIdCUDA.tlog/CudaCompile.write.1u.tlog  |  Bin [31m0[m -> [32m382[m bytes
+ .../Debug/CompilerIdCUDA.tlog/link.command.1.tlog  |  Bin [31m0[m -> [32m1166[m bytes
+ .../Debug/CompilerIdCUDA.tlog/link.read.1.tlog     |  Bin [31m0[m -> [32m2346[m bytes
+ .../CompilerIdCUDA.tlog/link.secondary.1.tlog      |    1 [32m+[m
+ .../Debug/CompilerIdCUDA.tlog/link.write.1.tlog    |  Bin [31m0[m -> [32m374[m bytes
+ .../4.2.3/CompilerIdCUDA/Debug/vc143.pdb           |  Bin [31m0[m -> [32m102400[m bytes
+ .../4.2.3/CompilerIdCXX/CMakeCXXCompilerId.cpp     |  949 [32m+++++++++[m
+ .../4.2.3/CompilerIdCXX/CompilerIdCXX.exe          |  Bin [31m0[m -> [32m15360[m bytes
+ .../4.2.3/CompilerIdCXX/CompilerIdCXX.vcxproj      |   72 [32m+[m
+ .../CompilerIdCXX/Debug/CMakeCXXCompilerId.obj     |  Bin [31m0[m -> [32m2353[m bytes
+ .../CompilerIdCXX/Debug/CompilerIdCXX.exe.recipe   |   11 [32m+[m
+ .../Debug/CompilerIdCXX.tlog/CL.command.1.tlog     |  Bin [31m0[m -> [32m692[m bytes
+ .../Debug/CompilerIdCXX.tlog/CL.read.1.tlog        |  Bin [31m0[m -> [32m564[m bytes
+ .../Debug/CompilerIdCXX.tlog/CL.write.1.tlog       |  Bin [31m0[m -> [32m332[m bytes
+ .../Debug/CompilerIdCXX.tlog/Cl.items.tlog         |    1 [32m+[m
+ .../CompilerIdCXX.lastbuildstate                   |    2 [32m+[m
+ .../Debug/CompilerIdCXX.tlog/link.command.1.tlog   |  Bin [31m0[m -> [32m1012[m bytes
+ .../Debug/CompilerIdCXX.tlog/link.read.1.tlog      |  Bin [31m0[m -> [32m3378[m bytes
+ .../Debug/CompilerIdCXX.tlog/link.secondary.1.tlog |    1 [32m+[m
+ .../Debug/CompilerIdCXX.tlog/link.write.1.tlog     |  Bin [31m0[m -> [32m322[m bytes
+ build/CMakeFiles/4.2.3/VCTargetsPath.txt           |    1 [32m+[m
+ build/CMakeFiles/4.2.3/VCTargetsPath.vcxproj       |   31 [32m+[m
+ .../VCTargetsPath/x64/Debug/VCTargetsPath.recipe   |   11 [32m+[m
+ .../VCTargetsPath.lastbuildstate                   |    2 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ .../generate.stamp.rule                            |    1 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ build/CMakeFiles/CMakeConfigureLog.yaml            | 2214 [32m++++++++++++++++++++[m
+ build/CMakeFiles/InstallScripts.json               |   14 [32m+[m
+ build/CMakeFiles/TargetDirectories.txt             |   40 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ build/CMakeFiles/cmake.check_cache                 |    1 [32m+[m
+ .../INSTALL_force.rule                             |    1 [32m+[m
+ .../RUN_TESTS_force.rule                           |    1 [32m+[m
+ build/CMakeFiles/generate.stamp                    |    1 [32m+[m
+ build/CMakeFiles/generate.stamp.depend             |   38 [32m+[m
+ build/CMakeFiles/generate.stamp.list               |    8 [32m+[m
+ build/CTestTestfile.cmake                          |  173 [32m++[m
+ .../Debug/CudaBenchmark.exe.recipe                 |   14 [32m+[m
+ build/CudaBenchmark.dir/Debug/CudaBenchmark.ilk    |  Bin [31m0[m -> [32m1328502[m bytes
+ .../CudaBenchmark.lastbuildstate                   |    2 [32m+[m
+ .../CudaBenchmark.tlog/CudaCompile.read.1u.tlog    |  Bin [31m0[m -> [32m31060[m bytes
+ .../CudaBenchmark.tlog/CudaCompile.write.1u.tlog   |  Bin [31m0[m -> [32m188[m bytes
+ .../CudaBenchmark.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../CudaBenchmark.tlog/CustomBuild.read.1.tlog     |   37 [32m+[m
+ .../CudaBenchmark.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Debug/CudaBenchmark.tlog/link.command.1.tlog   |  Bin [31m0[m -> [32m1820[m bytes
+ .../Debug/CudaBenchmark.tlog/link.read.1.tlog      |  Bin [31m0[m -> [32m3850[m bytes
+ .../Debug/CudaBenchmark.tlog/link.secondary.1.tlog |    2 [32m+[m
+ .../Debug/CudaBenchmark.tlog/link.write.1.tlog     |  Bin [31m0[m -> [32m336[m bytes
+ .../Debug/cuda_benchmark.cu.cache                  |   58 [32m+[m
+ .../Debug/cuda_benchmark.cu1614346132.deps         |  159 [32m++[m
+ build/CudaBenchmark.dir/Debug/cuda_benchmark.obj   |  Bin [31m0[m -> [32m136966[m bytes
+ build/CudaBenchmark.dir/Debug/vc143.pdb            |  Bin [31m0[m -> [32m446464[m bytes
+ .../Release/CudaBenchmark.exe.recipe               |   14 [32m+[m
+ .../CudaBenchmark.lastbuildstate                   |    2 [32m+[m
+ .../CudaBenchmark.tlog/CudaCompile.read.1u.tlog    |  Bin [31m0[m -> [32m66150[m bytes
+ .../CudaBenchmark.tlog/CudaCompile.write.1u.tlog   |  Bin [31m0[m -> [32m192[m bytes
+ .../CudaBenchmark.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../CudaBenchmark.tlog/CustomBuild.read.1.tlog     |   37 [32m+[m
+ .../CudaBenchmark.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Release/CudaBenchmark.tlog/link.command.1.tlog |  Bin [31m0[m -> [32m1742[m bytes
+ .../Release/CudaBenchmark.tlog/link.read.1.tlog    |  Bin [31m0[m -> [32m3648[m bytes
+ .../CudaBenchmark.tlog/link.secondary.1.tlog       |    1 [32m+[m
+ .../Release/CudaBenchmark.tlog/link.write.1.tlog   |  Bin [31m0[m -> [32m246[m bytes
+ .../Release/cuda_benchmark.cu.cache                |   58 [32m+[m
+ .../Release/cuda_benchmark.cu1614346132.deps       |  389 [32m++++[m
+ build/CudaBenchmark.dir/Release/cuda_benchmark.obj |  Bin [31m0[m -> [32m161832[m bytes
+ build/CudaBenchmark.vcxproj                        |  456 [32m++++[m
+ build/CudaBenchmark.vcxproj.filters                |   16 [32m+[m
+ build/Debug/CudaBenchmark.exe                      |  Bin [31m0[m -> [32m179712[m bytes
+ build/Debug/CudaBenchmark.pdb                      |  Bin [31m0[m -> [32m1470464[m bytes
+ build/Debug/KernelBenchmark.exe                    |  Bin [31m0[m -> [32m2270720[m bytes
+ build/Debug/KernelBenchmark.pdb                    |  Bin [31m0[m -> [32m55685120[m bytes
+ build/Debug/KernelComparisonTests.exe              |  Bin [31m0[m -> [32m3748352[m bytes
+ build/Debug/KernelComparisonTests.pdb              |  Bin [31m0[m -> [32m53325824[m bytes
+ build/Debug/ssmforge.lib                           |  Bin [31m0[m -> [32m53559646[m bytes
+ build/Debug/ssmforge.pdb                           |  Bin [31m0[m -> [32m48271360[m bytes
+ build/Debug/test_bilinear.exe                      |  Bin [31m0[m -> [32m1625088[m bytes
+ build/Debug/test_bilinear.pdb                      |  Bin [31m0[m -> [32m11374592[m bytes
+ build/Debug/test_cauchy.exe                        |  Bin [31m0[m -> [32m1628672[m bytes
+ build/Debug/test_cauchy.pdb                        |  Bin [31m0[m -> [32m11210752[m bytes
+ build/Debug/test_discretize.exe                    |  Bin [31m0[m -> [32m2990080[m bytes
+ build/Debug/test_discretize.pdb                    |  Bin [31m0[m -> [32m48099328[m bytes
+ build/Debug/test_frequency_points.exe              |  Bin [31m0[m -> [32m1620480[m bytes
+ build/Debug/test_frequency_points.pdb              |  Bin [31m0[m -> [32m11382784[m bytes
+ build/Debug/test_hippo.exe                         |  Bin [31m0[m -> [32m1627648[m bytes
+ build/Debug/test_hippo.pdb                         |  Bin [31m0[m -> [32m10997760[m bytes
+ build/Debug/test_kernel.exe                        |  Bin [31m0[m -> [32m1816064[m bytes
+ build/Debug/test_kernel.pdb                        |  Bin [31m0[m -> [32m17354752[m bytes
+ build/Debug/test_nplr.exe                          |  Bin [31m0[m -> [32m2999808[m bytes
+ build/Debug/test_nplr.pdb                          |  Bin [31m0[m -> [32m42119168[m bytes
+ build/Debug/test_resolvent.exe                     |  Bin [31m0[m -> [32m2107392[m bytes
+ build/Debug/test_resolvent.pdb                     |  Bin [31m0[m -> [32m18518016[m bytes
+ build/Debug/test_s4_kernel.exe                     |  Bin [31m0[m -> [32m3763712[m bytes
+ build/Debug/test_s4_kernel.pdb                     |  Bin [31m0[m -> [32m65376256[m bytes
+ build/Debug/test_s4_resolvent.exe                  |  Bin [31m0[m -> [32m3131904[m bytes
+ build/Debug/test_s4_resolvent.pdb                  |  Bin [31m0[m -> [32m50548736[m bytes
+ build/Debug/test_ssm.exe                           |  Bin [31m0[m -> [32m1581568[m bytes
+ build/Debug/test_ssm.pdb                           |  Bin [31m0[m -> [32m9441280[m bytes
+ build/INSTALL.vcxproj                              |  211 [32m++[m
+ build/INSTALL.vcxproj.filters                      |   13 [32m+[m
+ .../Debug/KernelBenchmark.exe.recipe               |   14 [32m+[m
+ .../KernelBenchmark.dir/Debug/KernelBenchmark.ilk  |  Bin [31m0[m -> [32m14340824[m bytes
+ .../Debug/KernelBenchmark.tlog/CL.command.1.tlog   |  Bin [31m0[m -> [32m950[m bytes
+ .../Debug/KernelBenchmark.tlog/CL.read.1.tlog      |  Bin [31m0[m -> [32m60946[m bytes
+ .../Debug/KernelBenchmark.tlog/CL.write.1.tlog     |  Bin [31m0[m -> [32m372[m bytes
+ .../Debug/KernelBenchmark.tlog/Cl.items.tlog       |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../KernelBenchmark.tlog/CustomBuild.read.1.tlog   |   37 [32m+[m
+ .../KernelBenchmark.tlog/CustomBuild.write.1.tlog  |    2 [32m+[m
+ .../KernelBenchmark.lastbuildstate                 |    2 [32m+[m
+ .../Debug/KernelBenchmark.tlog/link.command.1.tlog |  Bin [31m0[m -> [32m1856[m bytes
+ .../Debug/KernelBenchmark.tlog/link.read.1.tlog    |  Bin [31m0[m -> [32m3870[m bytes
+ .../KernelBenchmark.tlog/link.secondary.1.tlog     |    2 [32m+[m
+ .../Debug/KernelBenchmark.tlog/link.write.1.tlog   |  Bin [31m0[m -> [32m352[m bytes
+ .../KernelBenchmark.dir/Debug/kernel_benchmark.obj |  Bin [31m0[m -> [32m622094[m bytes
+ build/KernelBenchmark.dir/Debug/vc143.pdb          |  Bin [31m0[m -> [32m1519616[m bytes
+ .../Release/KernelBenchmark.exe.recipe             |   14 [32m+[m
+ .../Release/KernelBenchmark.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m960[m bytes
+ .../Release/KernelBenchmark.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m60584[m bytes
+ .../Release/KernelBenchmark.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m254[m bytes
+ .../Release/KernelBenchmark.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../KernelBenchmark.tlog/CustomBuild.read.1.tlog   |   37 [32m+[m
+ .../KernelBenchmark.tlog/CustomBuild.write.1.tlog  |    2 [32m+[m
+ .../KernelBenchmark.lastbuildstate                 |    2 [32m+[m
+ .../KernelBenchmark.tlog/link.command.1.tlog       |  Bin [31m0[m -> [32m1770[m bytes
+ .../Release/KernelBenchmark.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m3664[m bytes
+ .../KernelBenchmark.tlog/link.secondary.1.tlog     |    1 [32m+[m
+ .../Release/KernelBenchmark.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m258[m bytes
+ .../Release/kernel_benchmark.obj                   |  Bin [31m0[m -> [32m173939[m bytes
+ build/KernelBenchmark.vcxproj                      |  403 [32m++++[m
+ build/KernelBenchmark.vcxproj.filters              |   16 [32m+[m
+ .../Debug/KernelCo.DEEA1325.tlog/CL.command.1.tlog |    1 [32m+[m
+ .../Debug/KernelCo.DEEA1325.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../KernelCo.DEEA1325.tlog/CustomBuild.read.1.tlog |   33 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../KernelComparisonTests.lastbuildstate           |    2 [32m+[m
+ .../KernelCo.DEEA1325.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1486[m bytes
+ .../Debug/KernelCo.DEEA1325.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m4508[m bytes
+ .../KernelCo.DEEA1325.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/KernelCo.DEEA1325.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m400[m bytes
+ .../Debug/KernelCo.DEEA1325.tlog/unsuccessfulbuild |    0
+ .../Debug/KernelComparisonTests.exe.recipe         |   14 [32m+[m
+ .../Debug/KernelComparisonTests.ilk                |  Bin [31m0[m -> [32m19960544[m bytes
+ build/KernelComparisonTests.dir/Debug/vc143.pdb    |  Bin [31m0[m -> [32m1830912[m bytes
+ build/KernelComparisonTests.vcxproj                |  449 [32m++++[m
+ build/KernelComparisonTests.vcxproj.filters        |   16 [32m+[m
+ build/KernelComparisonTests[1]_include.cmake       |    5 [32m+[m
+ build/KernelComparisonTests[1]_tests.cmake         |    3 [32m+[m
+ build/RUN_TESTS.vcxproj                            |  201 [32m++[m
+ build/RUN_TESTS.vcxproj.filters                    |   13 [32m+[m
+ build/Release/CudaBenchmark.exe                    |  Bin [31m0[m -> [32m152064[m bytes
+ build/Release/KernelBenchmark.exe                  |  Bin [31m0[m -> [32m203776[m bytes
+ build/Release/ssmforge.lib                         |  Bin [31m0[m -> [32m27765564[m bytes
+ build/Release/test_bilinear.exe                    |  Bin [31m0[m -> [32m303104[m bytes
+ build/Release/test_cauchy.exe                      |  Bin [31m0[m -> [32m299008[m bytes
+ build/Release/test_discretize.exe                  |  Bin [31m0[m -> [32m406528[m bytes
+ build/Release/test_frequency_points.exe            |  Bin [31m0[m -> [32m310784[m bytes
+ build/Release/test_hippo.exe                       |  Bin [31m0[m -> [32m306176[m bytes
+ build/Release/test_kernel.exe                      |  Bin [31m0[m -> [32m330752[m bytes
+ build/Release/test_nplr.exe                        |  Bin [31m0[m -> [32m465408[m bytes
+ build/Release/test_resolvent.exe                   |  Bin [31m0[m -> [32m353280[m bytes
+ build/Release/test_s4_kernel.exe                   |  Bin [31m0[m -> [32m489984[m bytes
+ build/Release/test_s4_resolvent.exe                |  Bin [31m0[m -> [32m474112[m bytes
+ build/Release/test_ssm.exe                         |  Bin [31m0[m -> [32m279552[m bytes
+ build/Testing/Temporary/CTestCostData.txt          |   14 [32m+[m
+ build/Testing/Temporary/LastTest.log               |  338 [32m+++[m
+ build/Testing/Temporary/LastTestsFailed.log        |    1 [32m+[m
+ build/ZERO_CHECK.vcxproj                           |  181 [32m++[m
+ build/ZERO_CHECK.vcxproj.filters                   |   13 [32m+[m
+ build/_deps/eigen-build/ALL_BUILD.vcxproj          |  183 [32m++[m
+ build/_deps/eigen-build/ALL_BUILD.vcxproj.filters  |    8 [32m+[m
+ build/_deps/eigen-build/CMakeFiles/generate.stamp  |    1 [32m+[m
+ .../eigen-build/CMakeFiles/generate.stamp.depend   |   20 [32m+[m
+ build/_deps/eigen-build/Eigen3.sln                 |   62 [32m+[m
+ build/_deps/eigen-build/INSTALL.vcxproj            |  211 [32m++[m
+ build/_deps/eigen-build/INSTALL.vcxproj.filters    |   13 [32m+[m
+ build/_deps/eigen-build/RUN_TESTS.vcxproj          |  201 [32m++[m
+ build/_deps/eigen-build/RUN_TESTS.vcxproj.filters  |   13 [32m+[m
+ build/_deps/eigen-build/cmake_install.cmake        |   58 [32m+[m
+ build/_deps/eigen-build/include/Eigen/Version      |   14 [32m+[m
+ .../unsupported/CMakeFiles/generate.stamp          |    1 [32m+[m
+ .../unsupported/CMakeFiles/generate.stamp.depend   |    2 [32m+[m
+ .../unsupported/Eigen/CMakeFiles/generate.stamp    |    1 [32m+[m
+ .../Eigen/CMakeFiles/generate.stamp.depend         |    2 [32m+[m
+ .../Eigen/CXX11/CMakeFiles/generate.stamp          |    1 [32m+[m
+ .../Eigen/CXX11/CMakeFiles/generate.stamp.depend   |    2 [32m+[m
+ .../unsupported/Eigen/CXX11/INSTALL.vcxproj        |  211 [32m++[m
+ .../Eigen/CXX11/INSTALL.vcxproj.filters            |   13 [32m+[m
+ .../unsupported/Eigen/CXX11/RUN_TESTS.vcxproj      |  201 [32m++[m
+ .../Eigen/CXX11/RUN_TESTS.vcxproj.filters          |   13 [32m+[m
+ .../unsupported/Eigen/CXX11/cmake_install.cmake    |   52 [32m+[m
+ .../eigen-build/unsupported/Eigen/INSTALL.vcxproj  |  211 [32m++[m
+ .../unsupported/Eigen/INSTALL.vcxproj.filters      |   13 [32m+[m
+ .../unsupported/Eigen/RUN_TESTS.vcxproj            |  201 [32m++[m
+ .../unsupported/Eigen/RUN_TESTS.vcxproj.filters    |   13 [32m+[m
+ .../unsupported/Eigen/cmake_install.cmake          |   75 [32m+[m
+ .../_deps/eigen-build/unsupported/INSTALL.vcxproj  |  211 [32m++[m
+ .../unsupported/INSTALL.vcxproj.filters            |   13 [32m+[m
+ .../eigen-build/unsupported/RUN_TESTS.vcxproj      |  201 [32m++[m
+ .../unsupported/RUN_TESTS.vcxproj.filters          |   13 [32m+[m
+ .../eigen-build/unsupported/cmake_install.cmake    |   46 [32m+[m
+ build/_deps/eigen-src                              |    1 [32m+[m
+ build/_deps/eigen-subbuild/ALL_BUILD.vcxproj       |   89 [32m+[m
+ .../_deps/eigen-subbuild/ALL_BUILD.vcxproj.filters |    8 [32m+[m
+ build/_deps/eigen-subbuild/CMakeCache.txt          |  112 [32m+[m
+ .../eigen-populate.rule                            |    1 [32m+[m
+ .../generate.stamp.rule                            |    1 [32m+[m
+ .../CMakeFiles/4.2.3/CMakeSystem.cmake             |   15 [32m+[m
+ .../CMakeFiles/4.2.3/VCTargetsPath.txt             |    1 [32m+[m
+ .../CMakeFiles/4.2.3/VCTargetsPath.vcxproj         |   31 [32m+[m
+ .../VCTargetsPath/x64/Debug/VCTargetsPath.recipe   |   11 [32m+[m
+ .../VCTargetsPath.lastbuildstate                   |    2 [32m+[m
+ .../eigen-populate-build.rule                      |    1 [32m+[m
+ .../eigen-populate-configure.rule                  |    1 [32m+[m
+ .../eigen-populate-download.rule                   |    1 [32m+[m
+ .../eigen-populate-install.rule                    |    1 [32m+[m
+ .../eigen-populate-mkdir.rule                      |    1 [32m+[m
+ .../eigen-populate-patch.rule                      |    1 [32m+[m
+ .../eigen-populate-test.rule                       |    1 [32m+[m
+ .../eigen-populate-update.rule                     |    1 [32m+[m
+ .../CMakeFiles/CMakeConfigureLog.yaml              |   11 [32m+[m
+ .../CMakeFiles/Debug/eigen-populate-complete       |    0
+ .../eigen-subbuild/CMakeFiles/InstallScripts.json  |    7 [32m+[m
+ .../CMakeFiles/TargetDirectories.txt               |    3 [32m+[m
+ .../eigen-subbuild/CMakeFiles/cmake.check_cache    |    1 [32m+[m
+ .../eigen-populate-complete.rule                   |    1 [32m+[m
+ .../CMakeFiles/eigen-populate.dir/Labels.json      |   46 [32m+[m
+ .../CMakeFiles/eigen-populate.dir/Labels.txt       |   14 [32m+[m
+ .../_deps/eigen-subbuild/CMakeFiles/generate.stamp |    1 [32m+[m
+ .../CMakeFiles/generate.stamp.depend               |   20 [32m+[m
+ .../eigen-subbuild/CMakeFiles/generate.stamp.list  |    1 [32m+[m
+ build/_deps/eigen-subbuild/CMakeLists.txt          |   42 [32m+[m
+ build/_deps/eigen-subbuild/ZERO_CHECK.vcxproj      |   78 [32m+[m
+ .../eigen-subbuild/ZERO_CHECK.vcxproj.filters      |   13 [32m+[m
+ build/_deps/eigen-subbuild/cmake_install.cmake     |   56 [32m+[m
+ .../Debug/eigen-populate-build                     |    0
+ .../Debug/eigen-populate-configure                 |    0
+ .../eigen-populate-stamp/Debug/eigen-populate-done |    0
+ .../Debug/eigen-populate-download                  |    0
+ .../Debug/eigen-populate-install                   |    0
+ .../Debug/eigen-populate-mkdir                     |    0
+ .../Debug/eigen-populate-patch                     |    0
+ .../eigen-populate-stamp/Debug/eigen-populate-test |    0
+ .../eigen-populate-gitclone-lastrun.txt            |   15 [32m+[m
+ .../eigen-populate-gitinfo.txt                     |   15 [32m+[m
+ .../eigen-populate-patch-info.txt                  |    6 [32m+[m
+ .../eigen-populate-update-info.txt                 |    7 [32m+[m
+ .../tmp/eigen-populate-cfgcmd.txt                  |    1 [32m+[m
+ .../tmp/eigen-populate-gitclone.cmake              |   87 [32m+[m
+ .../tmp/eigen-populate-gitupdate.cmake             |  317 [32m+++[m
+ .../tmp/eigen-populate-mkdirs.cmake                |   27 [32m+[m
+ build/_deps/eigen-subbuild/eigen-populate.sln      |   47 [32m+[m
+ build/_deps/eigen-subbuild/eigen-populate.vcxproj  |  303 [32m+++[m
+ .../eigen-subbuild/eigen-populate.vcxproj.filters  |   44 [32m+[m
+ .../x64/Debug/ALL_BUILD/ALL_BUILD.recipe           |   17 [32m+[m
+ .../ALL_BUILD.tlog/ALL_BUILD.lastbuildstate        |    2 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.read.1.tlog         |   19 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.write.1.tlog        |    2 [32m+[m
+ .../x64/Debug/ZERO_CHECK/ZERO_CHECK.recipe         |   11 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.read.1.tlog        |   20 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.write.1.tlog       |    2 [32m+[m
+ .../ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate      |    2 [32m+[m
+ .../x64/Debug/eigen-populate/eigen-populate.recipe |   14 [32m+[m
+ .../eigen-populate.tlog/CustomBuild.command.1.tlog |  150 [32m++[m
+ .../eigen-populate.tlog/CustomBuild.read.1.tlog    |   50 [32m+[m
+ .../eigen-populate.tlog/CustomBuild.write.1.tlog   |   22 [32m+[m
+ .../eigen-populate.lastbuildstate                  |    2 [32m+[m
+ build/_deps/googletest-build/ALL_BUILD.vcxproj     |  199 [32m++[m
+ .../googletest-build/ALL_BUILD.vcxproj.filters     |    8 [32m+[m
+ .../googletest-build/CMakeFiles/generate.stamp     |    1 [32m+[m
+ .../CMakeFiles/generate.stamp.depend               |   19 [32m+[m
+ build/_deps/googletest-build/CTestTestfile.cmake   |    7 [32m+[m
+ build/_deps/googletest-build/INSTALL.vcxproj       |  211 [32m++[m
+ .../_deps/googletest-build/INSTALL.vcxproj.filters |   13 [32m+[m
+ build/_deps/googletest-build/RUN_TESTS.vcxproj     |  201 [32m++[m
+ .../googletest-build/RUN_TESTS.vcxproj.filters     |   13 [32m+[m
+ build/_deps/googletest-build/cmake_install.cmake   |   46 [32m+[m
+ .../googletest-build/googlemock/ALL_BUILD.vcxproj  |  199 [32m++[m
+ .../googlemock/ALL_BUILD.vcxproj.filters           |    8 [32m+[m
+ .../googlemock/CMakeFiles/generate.stamp           |    1 [32m+[m
+ .../googlemock/CMakeFiles/generate.stamp.depend    |   10 [32m+[m
+ .../googlemock/CTestTestfile.cmake                 |    7 [32m+[m
+ .../googletest-build/googlemock/INSTALL.vcxproj    |  211 [32m++[m
+ .../googlemock/INSTALL.vcxproj.filters             |   13 [32m+[m
+ .../googletest-build/googlemock/RUN_TESTS.vcxproj  |  201 [32m++[m
+ .../googlemock/RUN_TESTS.vcxproj.filters           |   13 [32m+[m
+ .../googlemock/cmake_install.cmake                 |  106 [32m+[m
+ .../googlemock/gmock.dir/Debug/gmock-all.obj       |  Bin [31m0[m -> [32m2431473[m bytes
+ .../googlemock/gmock.dir/Debug/gmock.lib.recipe    |   11 [32m+[m
+ .../gmock.dir/Debug/gmock.tlog/CL.command.1.tlog   |  Bin [31m0[m -> [32m3502[m bytes
+ .../gmock.dir/Debug/gmock.tlog/CL.read.1.tlog      |  Bin [31m0[m -> [32m94426[m bytes
+ .../gmock.dir/Debug/gmock.tlog/CL.write.1.tlog     |  Bin [31m0[m -> [32m1380[m bytes
+ .../gmock.dir/Debug/gmock.tlog/Cl.items.tlog       |    2 [32m+[m
+ .../Debug/gmock.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../Debug/gmock.tlog/CustomBuild.read.1.tlog       |    9 [32m+[m
+ .../Debug/gmock.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Debug/gmock.tlog/Lib-link.read.1.tlog          |  Bin [31m0[m -> [32m876[m bytes
+ .../Debug/gmock.tlog/Lib-link.write.1.tlog         |  Bin [31m0[m -> [32m448[m bytes
+ .../gmock.dir/Debug/gmock.tlog/Lib.command.1.tlog  |  Bin [31m0[m -> [32m662[m bytes
+ .../Debug/gmock.tlog/gmock.lastbuildstate          |    2 [32m+[m
+ .../googlemock/gmock.dir/Debug/gtest-all.obj       |  Bin [31m0[m -> [32m9069622[m bytes
+ .../googlemock/gmock.dir/Release/gmock-all.obj     |  Bin [31m0[m -> [32m1012214[m bytes
+ .../googlemock/gmock.dir/Release/gmock.lib.recipe  |   11 [32m+[m
+ .../gmock.dir/Release/gmock.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m3418[m bytes
+ .../gmock.dir/Release/gmock.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m94426[m bytes
+ .../gmock.dir/Release/gmock.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m662[m bytes
+ .../gmock.dir/Release/gmock.tlog/Cl.items.tlog     |    2 [32m+[m
+ .../Release/gmock.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../Release/gmock.tlog/CustomBuild.read.1.tlog     |    9 [32m+[m
+ .../Release/gmock.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Release/gmock.tlog/Lib-link.read.1.tlog        |  Bin [31m0[m -> [32m892[m bytes
+ .../Release/gmock.tlog/Lib-link.write.1.tlog       |  Bin [31m0[m -> [32m460[m bytes
+ .../Release/gmock.tlog/Lib.command.1.tlog          |  Bin [31m0[m -> [32m682[m bytes
+ .../Release/gmock.tlog/gmock.lastbuildstate        |    2 [32m+[m
+ .../googlemock/gmock.dir/Release/gtest-all.obj     |  Bin [31m0[m -> [32m4260366[m bytes
+ build/_deps/googletest-build/googlemock/gmock.sln  |  119 [32m++[m
+ .../googletest-build/googlemock/gmock.vcxproj      |  360 [32m++++[m
+ .../googlemock/gmock.vcxproj.filters               |   19 [32m+[m
+ .../googlemock/gmock_main.dir/Debug/gmock-all.obj  |  Bin [31m0[m -> [32m2431481[m bytes
+ .../gmock_main.dir/Debug/gmock_main.lib.recipe     |   11 [32m+[m
+ .../googlemock/gmock_main.dir/Debug/gmock_main.obj |  Bin [31m0[m -> [32m128939[m bytes
+ .../Debug/gmock_main.tlog/CL.command.1.tlog        |  Bin [31m0[m -> [32m5316[m bytes
+ .../Debug/gmock_main.tlog/CL.read.1.tlog           |  Bin [31m0[m -> [32m134046[m bytes
+ .../Debug/gmock_main.tlog/CL.write.1.tlog          |  Bin [31m0[m -> [32m2072[m bytes
+ .../Debug/gmock_main.tlog/Cl.items.tlog            |    3 [32m+[m
+ .../gmock_main.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../Debug/gmock_main.tlog/CustomBuild.read.1.tlog  |    9 [32m+[m
+ .../Debug/gmock_main.tlog/CustomBuild.write.1.tlog |    2 [32m+[m
+ .../Debug/gmock_main.tlog/Lib-link.read.1.tlog     |  Bin [31m0[m -> [32m1294[m bytes
+ .../Debug/gmock_main.tlog/Lib-link.write.1.tlog    |  Bin [31m0[m -> [32m666[m bytes
+ .../Debug/gmock_main.tlog/Lib.command.1.tlog       |  Bin [31m0[m -> [32m974[m bytes
+ .../gmock_main.tlog/gmock_main.lastbuildstate      |    2 [32m+[m
+ .../googlemock/gmock_main.dir/Debug/gtest-all.obj  |  Bin [31m0[m -> [32m9069634[m bytes
+ .../gmock_main.dir/Release/gmock-all.obj           |  Bin [31m0[m -> [32m1012218[m bytes
+ .../gmock_main.dir/Release/gmock_main.lib.recipe   |   11 [32m+[m
+ .../gmock_main.dir/Release/gmock_main.obj          |  Bin [31m0[m -> [32m17516[m bytes
+ .../Release/gmock_main.tlog/CL.command.1.tlog      |  Bin [31m0[m -> [32m5190[m bytes
+ .../Release/gmock_main.tlog/CL.read.1.tlog         |  Bin [31m0[m -> [32m134046[m bytes
+ .../Release/gmock_main.tlog/CL.write.1.tlog        |  Bin [31m0[m -> [32m1024[m bytes
+ .../Release/gmock_main.tlog/Cl.items.tlog          |    3 [32m+[m
+ .../gmock_main.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../gmock_main.tlog/CustomBuild.read.1.tlog        |    9 [32m+[m
+ .../gmock_main.tlog/CustomBuild.write.1.tlog       |    2 [32m+[m
+ .../Release/gmock_main.tlog/Lib-link.read.1.tlog   |  Bin [31m0[m -> [32m1318[m bytes
+ .../Release/gmock_main.tlog/Lib-link.write.1.tlog  |  Bin [31m0[m -> [32m682[m bytes
+ .../Release/gmock_main.tlog/Lib.command.1.tlog     |  Bin [31m0[m -> [32m1002[m bytes
+ .../gmock_main.tlog/gmock_main.lastbuildstate      |    2 [32m+[m
+ .../gmock_main.dir/Release/gtest-all.obj           |  Bin [31m0[m -> [32m4260370[m bytes
+ .../googletest-build/googlemock/gmock_main.vcxproj |  361 [32m++++[m
+ .../googlemock/gmock_main.vcxproj.filters          |   22 [32m+[m
+ .../googletest-build/googletest-distribution.sln   |  119 [32m++[m
+ .../googletest-build/googletest/ALL_BUILD.vcxproj  |  191 [32m++[m
+ .../googletest/ALL_BUILD.vcxproj.filters           |    8 [32m+[m
+ .../GTestTargets-debug.cmake                       |   49 [32m+[m
+ .../GTestTargets-minsizerel.cmake                  |   49 [32m+[m
+ .../GTestTargets-release.cmake                     |   49 [32m+[m
+ .../GTestTargets-relwithdebinfo.cmake              |   49 [32m+[m
+ .../GTestTargets.cmake                             |  136 [32m++[m
+ .../googletest/CMakeFiles/generate.stamp           |    1 [32m+[m
+ .../googletest/CMakeFiles/generate.stamp.depend    |   16 [32m+[m
+ .../googletest/CTestTestfile.cmake                 |    6 [32m+[m
+ .../googletest-build/googletest/INSTALL.vcxproj    |  211 [32m++[m
+ .../googletest/INSTALL.vcxproj.filters             |   13 [32m+[m
+ .../googletest-build/googletest/RUN_TESTS.vcxproj  |  201 [32m++[m
+ .../googletest/RUN_TESTS.vcxproj.filters           |   13 [32m+[m
+ .../googletest/cmake_install.cmake                 |  139 [32m++[m
+ .../googletest/generated/GTestConfig.cmake         |   37 [32m+[m
+ .../googletest/generated/GTestConfigVersion.cmake  |   43 [32m+[m
+ .../googletest-build/googletest/generated/gmock.pc |   10 [32m+[m
+ .../googletest/generated/gmock_main.pc             |   10 [32m+[m
+ .../googletest-build/googletest/generated/gtest.pc |    9 [32m+[m
+ .../googletest/generated/gtest_main.pc             |   10 [32m+[m
+ .../googletest/gtest.dir/Debug/gtest-all.obj       |  Bin [31m0[m -> [32m9069622[m bytes
+ .../googletest/gtest.dir/Debug/gtest.lib.recipe    |   11 [32m+[m
+ .../gtest.dir/Debug/gtest.tlog/CL.command.1.tlog   |  Bin [31m0[m -> [32m1496[m bytes
+ .../gtest.dir/Debug/gtest.tlog/CL.read.1.tlog      |  Bin [31m0[m -> [32m54198[m bytes
+ .../gtest.dir/Debug/gtest.tlog/CL.write.1.tlog     |  Bin [31m0[m -> [32m472[m bytes
+ .../gtest.dir/Debug/gtest.tlog/Cl.items.tlog       |    1 [32m+[m
+ .../Debug/gtest.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../Debug/gtest.tlog/CustomBuild.read.1.tlog       |   15 [32m+[m
+ .../Debug/gtest.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Debug/gtest.tlog/Lib-link.read.1.tlog          |  Bin [31m0[m -> [32m422[m bytes
+ .../Debug/gtest.tlog/Lib-link.write.1.tlog         |  Bin [31m0[m -> [32m272[m bytes
+ .../gtest.dir/Debug/gtest.tlog/Lib.command.1.tlog  |  Bin [31m0[m -> [32m420[m bytes
+ .../Debug/gtest.tlog/gtest.lastbuildstate          |    2 [32m+[m
+ .../googletest/gtest.dir/Release/gtest-all.obj     |  Bin [31m0[m -> [32m4260366[m bytes
+ .../googletest/gtest.dir/Release/gtest.lib.recipe  |   11 [32m+[m
+ .../gtest.dir/Release/gtest.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m1454[m bytes
+ .../gtest.dir/Release/gtest.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m54198[m bytes
+ .../gtest.dir/Release/gtest.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m334[m bytes
+ .../gtest.dir/Release/gtest.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../Release/gtest.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../Release/gtest.tlog/CustomBuild.read.1.tlog     |   15 [32m+[m
+ .../Release/gtest.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Release/gtest.tlog/Lib-link.read.1.tlog        |  Bin [31m0[m -> [32m430[m bytes
+ .../Release/gtest.tlog/Lib-link.write.1.tlog       |  Bin [31m0[m -> [32m280[m bytes
+ .../Release/gtest.tlog/Lib.command.1.tlog          |  Bin [31m0[m -> [32m432[m bytes
+ .../Release/gtest.tlog/gtest.lastbuildstate        |    2 [32m+[m
+ build/_deps/googletest-build/googletest/gtest.sln  |   91 [32m+[m
+ .../googletest-build/googletest/gtest.vcxproj      |  359 [32m++++[m
+ .../googletest/gtest.vcxproj.filters               |   16 [32m+[m
+ .../gtest_main.dir/Debug/gtest_main.lib.recipe     |   11 [32m+[m
+ .../googletest/gtest_main.dir/Debug/gtest_main.obj |  Bin [31m0[m -> [32m104061[m bytes
+ .../Debug/gtest_main.tlog/CL.command.1.tlog        |  Bin [31m0[m -> [32m1560[m bytes
+ .../Debug/gtest_main.tlog/CL.read.1.tlog           |  Bin [31m0[m -> [32m36496[m bytes
+ .../Debug/gtest_main.tlog/CL.write.1.tlog          |  Bin [31m0[m -> [32m496[m bytes
+ .../Debug/gtest_main.tlog/Cl.items.tlog            |    1 [32m+[m
+ .../gtest_main.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../Debug/gtest_main.tlog/CustomBuild.read.1.tlog  |   15 [32m+[m
+ .../Debug/gtest_main.tlog/CustomBuild.write.1.tlog |    2 [32m+[m
+ .../Debug/gtest_main.tlog/Lib-link.read.1.tlog     |  Bin [31m0[m -> [32m446[m bytes
+ .../Debug/gtest_main.tlog/Lib-link.write.1.tlog    |  Bin [31m0[m -> [32m294[m bytes
+ .../Debug/gtest_main.tlog/Lib.command.1.tlog       |  Bin [31m0[m -> [32m450[m bytes
+ .../gtest_main.tlog/gtest_main.lastbuildstate      |    2 [32m+[m
+ .../gtest_main.dir/Release/gtest_main.lib.recipe   |   11 [32m+[m
+ .../gtest_main.dir/Release/gtest_main.obj          |  Bin [31m0[m -> [32m8212[m bytes
+ .../Release/gtest_main.tlog/CL.command.1.tlog      |  Bin [31m0[m -> [32m1518[m bytes
+ .../Release/gtest_main.tlog/CL.read.1.tlog         |  Bin [31m0[m -> [32m36496[m bytes
+ .../Release/gtest_main.tlog/CL.write.1.tlog        |  Bin [31m0[m -> [32m348[m bytes
+ .../Release/gtest_main.tlog/Cl.items.tlog          |    1 [32m+[m
+ .../gtest_main.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../gtest_main.tlog/CustomBuild.read.1.tlog        |   15 [32m+[m
+ .../gtest_main.tlog/CustomBuild.write.1.tlog       |    2 [32m+[m
+ .../Release/gtest_main.tlog/Lib-link.read.1.tlog   |  Bin [31m0[m -> [32m454[m bytes
+ .../Release/gtest_main.tlog/Lib-link.write.1.tlog  |  Bin [31m0[m -> [32m302[m bytes
+ .../Release/gtest_main.tlog/Lib.command.1.tlog     |  Bin [31m0[m -> [32m462[m bytes
+ .../gtest_main.tlog/gtest_main.lastbuildstate      |    2 [32m+[m
+ .../googletest-build/googletest/gtest_main.vcxproj |  363 [32m++++[m
+ .../googletest/gtest_main.vcxproj.filters          |   16 [32m+[m
+ build/_deps/googletest-src                         |    1 [32m+[m
+ build/_deps/googletest-subbuild/ALL_BUILD.vcxproj  |   89 [32m+[m
+ .../googletest-subbuild/ALL_BUILD.vcxproj.filters  |    8 [32m+[m
+ build/_deps/googletest-subbuild/CMakeCache.txt     |  112 [32m+[m
+ .../googletest-populate-complete.rule              |    1 [32m+[m
+ .../CMakeFiles/4.2.3/CMakeSystem.cmake             |   15 [32m+[m
+ .../CMakeFiles/4.2.3/VCTargetsPath.txt             |    1 [32m+[m
+ .../CMakeFiles/4.2.3/VCTargetsPath.vcxproj         |   31 [32m+[m
+ .../VCTargetsPath/x64/Debug/VCTargetsPath.recipe   |   11 [32m+[m
+ .../VCTargetsPath.lastbuildstate                   |    2 [32m+[m
+ .../generate.stamp.rule                            |    1 [32m+[m
+ .../googletest-populate.rule                       |    1 [32m+[m
+ .../CMakeFiles/CMakeConfigureLog.yaml              |   11 [32m+[m
+ .../CMakeFiles/Debug/googletest-populate-complete  |    0
+ .../CMakeFiles/InstallScripts.json                 |    7 [32m+[m
+ .../CMakeFiles/TargetDirectories.txt               |    3 [32m+[m
+ .../googletest-populate-build.rule                 |    1 [32m+[m
+ .../googletest-populate-configure.rule             |    1 [32m+[m
+ .../googletest-populate-download.rule              |    1 [32m+[m
+ .../googletest-populate-install.rule               |    1 [32m+[m
+ .../googletest-populate-mkdir.rule                 |    1 [32m+[m
+ .../googletest-populate-patch.rule                 |    1 [32m+[m
+ .../googletest-populate-test.rule                  |    1 [32m+[m
+ .../googletest-populate-update.rule                |    1 [32m+[m
+ .../CMakeFiles/cmake.check_cache                   |    1 [32m+[m
+ .../googletest-subbuild/CMakeFiles/generate.stamp  |    1 [32m+[m
+ .../CMakeFiles/generate.stamp.depend               |   20 [32m+[m
+ .../CMakeFiles/generate.stamp.list                 |    1 [32m+[m
+ .../CMakeFiles/googletest-populate.dir/Labels.json |   46 [32m+[m
+ .../CMakeFiles/googletest-populate.dir/Labels.txt  |   14 [32m+[m
+ build/_deps/googletest-subbuild/CMakeLists.txt     |   42 [32m+[m
+ build/_deps/googletest-subbuild/ZERO_CHECK.vcxproj |   78 [32m+[m
+ .../googletest-subbuild/ZERO_CHECK.vcxproj.filters |   13 [32m+[m
+ .../_deps/googletest-subbuild/cmake_install.cmake  |   56 [32m+[m
+ .../Debug/googletest-populate-build                |    0
+ .../Debug/googletest-populate-configure            |    0
+ .../Debug/googletest-populate-done                 |    0
+ .../Debug/googletest-populate-download             |    0
+ .../Debug/googletest-populate-install              |    0
+ .../Debug/googletest-populate-mkdir                |    0
+ .../Debug/googletest-populate-patch                |    0
+ .../Debug/googletest-populate-test                 |    0
+ .../googletest-populate-gitclone-lastrun.txt       |   15 [32m+[m
+ .../googletest-populate-gitinfo.txt                |   15 [32m+[m
+ .../googletest-populate-patch-info.txt             |    6 [32m+[m
+ .../googletest-populate-update-info.txt            |    7 [32m+[m
+ .../tmp/googletest-populate-cfgcmd.txt             |    1 [32m+[m
+ .../tmp/googletest-populate-gitclone.cmake         |   87 [32m+[m
+ .../tmp/googletest-populate-gitupdate.cmake        |  317 [32m+++[m
+ .../tmp/googletest-populate-mkdirs.cmake           |   27 [32m+[m
+ .../googletest-subbuild/googletest-populate.sln    |   47 [32m+[m
+ .../googletest-populate.vcxproj                    |  303 [32m+++[m
+ .../googletest-populate.vcxproj.filters            |   44 [32m+[m
+ .../x64/Debug/ALL_BUILD/ALL_BUILD.recipe           |   17 [32m+[m
+ .../ALL_BUILD.tlog/ALL_BUILD.lastbuildstate        |    2 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.read.1.tlog         |   19 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.write.1.tlog        |    2 [32m+[m
+ .../x64/Debug/ZERO_CHECK/ZERO_CHECK.recipe         |   11 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.read.1.tlog        |   20 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.write.1.tlog       |    2 [32m+[m
+ .../ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate      |    2 [32m+[m
+ .../CustomBuild.command.1.tlog                     |  150 [32m++[m
+ .../googlete.15289277.tlog/CustomBuild.read.1.tlog |   50 [32m+[m
+ .../CustomBuild.write.1.tlog                       |   22 [32m+[m
+ .../googletest-populate.lastbuildstate             |    2 [32m+[m
+ .../googletest-populate/googletest-populate.recipe |   14 [32m+[m
+ build/cmake_install.cmake                          |   66 [32m+[m
+ build/cmake_test_discovery_53a9ac26c1.json         |   17 [32m+[m
+ build/lib/Debug/gmock.lib                          |  Bin [31m0[m -> [32m13398080[m bytes
+ build/lib/Debug/gmock.pdb                          |  Bin [31m0[m -> [32m2609152[m bytes
+ build/lib/Debug/gmock_main.lib                     |  Bin [31m0[m -> [32m13527218[m bytes
+ build/lib/Debug/gmock_main.pdb                     |  Bin [31m0[m -> [32m2633728[m bytes
+ .../Debug/gmock_mainpdb_debug_postfix-NOTFOUND.pdb |  Bin [31m0[m -> [32m2633728[m bytes
+ .../lib/Debug/gmockpdb_debug_postfix-NOTFOUND.pdb  |  Bin [31m0[m -> [32m2609152[m bytes
+ build/lib/Debug/gtest.lib                          |  Bin [31m0[m -> [32m10678912[m bytes
+ build/lib/Debug/gtest.pdb                          |  Bin [31m0[m -> [32m2109440[m bytes
+ build/lib/Debug/gtest_main.lib                     |  Bin [31m0[m -> [32m105998[m bytes
+ build/lib/Debug/gtest_main.pdb                     |  Bin [31m0[m -> [32m1052672[m bytes
+ .../Debug/gtest_mainpdb_debug_postfix-NOTFOUND.pdb |  Bin [31m0[m -> [32m1052672[m bytes
+ .../lib/Debug/gtestpdb_debug_postfix-NOTFOUND.pdb  |  Bin [31m0[m -> [32m2109440[m bytes
+ build/lib/Release/gmock.lib                        |  Bin [31m0[m -> [32m7108216[m bytes
+ build/lib/Release/gmock_main.lib                   |  Bin [31m0[m -> [32m7126050[m bytes
+ build/lib/Release/gtest.lib                        |  Bin [31m0[m -> [32m5814304[m bytes
+ build/lib/Release/gtest_main.lib                   |  Bin [31m0[m -> [32m9880[m bytes
+ build/ssmforge.dir/Debug/bilinear.obj              |  Bin [31m0[m -> [32m212523[m bytes
+ build/ssmforge.dir/Debug/cauchy.obj                |  Bin [31m0[m -> [32m201226[m bytes
+ build/ssmforge.dir/Debug/cuda_kernel.cu.cache      |   58 [32m+[m
+ .../Debug/cuda_kernel.cu121096116.deps             |   82 [32m+[m
+ build/ssmforge.dir/Debug/cuda_kernel.obj           |  Bin [31m0[m -> [32m78178[m bytes
+ build/ssmforge.dir/Debug/discrete_kernel.obj       |  Bin [31m0[m -> [32m926871[m bytes
+ build/ssmforge.dir/Debug/discretize.obj            |  Bin [31m0[m -> [32m19900523[m bytes
+ build/ssmforge.dir/Debug/frequency_points.obj      |  Bin [31m0[m -> [32m180155[m bytes
+ build/ssmforge.dir/Debug/hippo.obj                 |  Bin [31m0[m -> [32m267249[m bytes
+ build/ssmforge.dir/Debug/kernel.obj                |  Bin [31m0[m -> [32m1111241[m bytes
+ build/ssmforge.dir/Debug/nplr.obj                  |  Bin [31m0[m -> [32m14037427[m bytes
+ build/ssmforge.dir/Debug/resolvent.obj             |  Bin [31m0[m -> [32m5099551[m bytes
+ build/ssmforge.dir/Debug/s4_kernel.obj             |  Bin [31m0[m -> [32m2332343[m bytes
+ build/ssmforge.dir/Debug/s4_resolvent.obj          |  Bin [31m0[m -> [32m1284035[m bytes
+ build/ssmforge.dir/Debug/ssm.obj                   |  Bin [31m0[m -> [32m778[m bytes
+ build/ssmforge.dir/Debug/ssmforge.lib.recipe       |   11 [32m+[m
+ .../Debug/ssmforge.tlog/CL.command.1.tlog          |  Bin [31m0[m -> [32m10998[m bytes
+ .../Debug/ssmforge.tlog/CL.read.1.tlog             |  Bin [31m0[m -> [32m641666[m bytes
+ .../Debug/ssmforge.tlog/CL.write.1.tlog            |  Bin [31m0[m -> [32m5240[m bytes
+ .../ssmforge.dir/Debug/ssmforge.tlog/Cl.items.tlog |   12 [32m+[m
+ .../Debug/ssmforge.tlog/CudaCompile.read.1u.tlog   |  Bin [31m0[m -> [32m15132[m bytes
+ .../Debug/ssmforge.tlog/CudaCompile.write.1u.tlog  |  Bin [31m0[m -> [32m152[m bytes
+ .../Debug/ssmforge.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../Debug/ssmforge.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../Debug/ssmforge.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../Debug/ssmforge.tlog/Lib-link.read.1.tlog       |  Bin [31m0[m -> [32m3146[m bytes
+ .../Debug/ssmforge.tlog/Lib-link.write.1.tlog      |  Bin [31m0[m -> [32m1570[m bytes
+ .../Debug/ssmforge.tlog/Lib.command.1.tlog         |  Bin [31m0[m -> [32m2862[m bytes
+ .../Debug/ssmforge.tlog/ssmforge.lastbuildstate    |    2 [32m+[m
+ build/ssmforge.dir/Release/bilinear.obj            |  Bin [31m0[m -> [32m48428[m bytes
+ build/ssmforge.dir/Release/cauchy.obj              |  Bin [31m0[m -> [32m42550[m bytes
+ build/ssmforge.dir/Release/cuda_kernel.cu.cache    |   58 [32m+[m
+ .../Release/cuda_kernel.cu121096116.deps           |  377 [32m++++[m
+ build/ssmforge.dir/Release/cuda_kernel.obj         |  Bin [31m0[m -> [32m721089[m bytes
+ build/ssmforge.dir/Release/discrete_kernel.obj     |  Bin [31m0[m -> [32m332189[m bytes
+ build/ssmforge.dir/Release/discretize.obj          |  Bin [31m0[m -> [32m9185857[m bytes
+ build/ssmforge.dir/Release/frequency_points.obj    |  Bin [31m0[m -> [32m36392[m bytes
+ build/ssmforge.dir/Release/hippo.obj               |  Bin [31m0[m -> [32m93512[m bytes
+ build/ssmforge.dir/Release/kernel.obj              |  Bin [31m0[m -> [32m410167[m bytes
+ build/ssmforge.dir/Release/nplr.obj                |  Bin [31m0[m -> [32m6067108[m bytes
+ build/ssmforge.dir/Release/resolvent.obj           |  Bin [31m0[m -> [32m1833283[m bytes
+ build/ssmforge.dir/Release/s4_kernel.obj           |  Bin [31m0[m -> [32m858173[m bytes
+ build/ssmforge.dir/Release/s4_resolvent.obj        |  Bin [31m0[m -> [32m481752[m bytes
+ build/ssmforge.dir/Release/ssm.obj                 |  Bin [31m0[m -> [32m513[m bytes
+ build/ssmforge.dir/Release/ssmforge.lib.recipe     |   11 [32m+[m
+ .../Release/ssmforge.tlog/CL.command.1.tlog        |  Bin [31m0[m -> [32m11118[m bytes
+ .../Release/ssmforge.tlog/CL.read.1.tlog           |  Bin [31m0[m -> [32m637684[m bytes
+ .../Release/ssmforge.tlog/CL.write.1.tlog          |  Bin [31m0[m -> [32m2290[m bytes
+ .../Release/ssmforge.tlog/Cl.items.tlog            |   12 [32m+[m
+ .../Release/ssmforge.tlog/CudaCompile.read.1u.tlog |  Bin [31m0[m -> [32m64012[m bytes
+ .../ssmforge.tlog/CudaCompile.write.1u.tlog        |  Bin [31m0[m -> [32m156[m bytes
+ .../ssmforge.tlog/CustomBuild.command.1.tlog       |   10 [32m+[m
+ .../Release/ssmforge.tlog/CustomBuild.read.1.tlog  |   37 [32m+[m
+ .../Release/ssmforge.tlog/CustomBuild.write.1.tlog |    2 [32m+[m
+ .../Release/ssmforge.tlog/Lib-link.read.1.tlog     |  Bin [31m0[m -> [32m3250[m bytes
+ .../Release/ssmforge.tlog/Lib-link.write.1.tlog    |  Bin [31m0[m -> [32m1626[m bytes
+ .../Release/ssmforge.tlog/Lib.command.1.tlog       |  Bin [31m0[m -> [32m2638[m bytes
+ .../Release/ssmforge.tlog/ssmforge.lastbuildstate  |    2 [32m+[m
+ .../Release/ssmforge.tlog/unsuccessfulbuild        |    0
+ build/ssmforge.sln                                 |  350 [32m++++[m
+ build/ssmforge.vcxproj                             |  412 [32m++++[m
+ build/ssmforge.vcxproj.filters                     |   54 [32m+[m
+ .../Debug/test_bilinear.exe.recipe                 |   14 [32m+[m
+ build/test_bilinear.dir/Debug/test_bilinear.ilk    |  Bin [31m0[m -> [32m6548401[m bytes
+ build/test_bilinear.dir/Debug/test_bilinear.obj    |  Bin [31m0[m -> [32m686816[m bytes
+ .../Debug/test_bilinear.tlog/CL.command.1.tlog     |  Bin [31m0[m -> [32m1208[m bytes
+ .../Debug/test_bilinear.tlog/CL.read.1.tlog        |  Bin [31m0[m -> [32m68108[m bytes
+ .../Debug/test_bilinear.tlog/CL.write.1.tlog       |  Bin [31m0[m -> [32m342[m bytes
+ .../Debug/test_bilinear.tlog/Cl.items.tlog         |    1 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.read.1.tlog     |   37 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Debug/test_bilinear.tlog/link.command.1.tlog   |  Bin [31m0[m -> [32m1906[m bytes
+ .../Debug/test_bilinear.tlog/link.read.1.tlog      |  Bin [31m0[m -> [32m4520[m bytes
+ .../Debug/test_bilinear.tlog/link.secondary.1.tlog |    2 [32m+[m
+ .../Debug/test_bilinear.tlog/link.write.1.tlog     |  Bin [31m0[m -> [32m334[m bytes
+ .../test_bilinear.lastbuildstate                   |    2 [32m+[m
+ build/test_bilinear.dir/Debug/vc143.pdb            |  Bin [31m0[m -> [32m1454080[m bytes
+ .../Release/test_bilinear.exe.recipe               |   14 [32m+[m
+ build/test_bilinear.dir/Release/test_bilinear.obj  |  Bin [31m0[m -> [32m264792[m bytes
+ .../Release/test_bilinear.tlog/CL.command.1.tlog   |  Bin [31m0[m -> [32m1218[m bytes
+ .../Release/test_bilinear.tlog/CL.read.1.tlog      |  Bin [31m0[m -> [32m68108[m bytes
+ .../Release/test_bilinear.tlog/CL.write.1.tlog     |  Bin [31m0[m -> [32m228[m bytes
+ .../Release/test_bilinear.tlog/Cl.items.tlog       |    1 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.command.1.tlog  |   10 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.read.1.tlog     |   37 [32m+[m
+ .../test_bilinear.tlog/CustomBuild.write.1.tlog    |    2 [32m+[m
+ .../Release/test_bilinear.tlog/link.command.1.tlog |  Bin [31m0[m -> [32m1836[m bytes
+ .../Release/test_bilinear.tlog/link.read.1.tlog    |  Bin [31m0[m -> [32m3842[m bytes
+ .../test_bilinear.tlog/link.secondary.1.tlog       |    1 [32m+[m
+ .../Release/test_bilinear.tlog/link.write.1.tlog   |  Bin [31m0[m -> [32m244[m bytes
+ .../test_bilinear.lastbuildstate                   |    2 [32m+[m
+ build/test_bilinear.vcxproj                        |  419 [32m++++[m
+ build/test_bilinear.vcxproj.filters                |   16 [32m+[m
+ build/test_cauchy.dir/Debug/test_cauchy.exe.recipe |   14 [32m+[m
+ build/test_cauchy.dir/Debug/test_cauchy.ilk        |  Bin [31m0[m -> [32m6486640[m bytes
+ build/test_cauchy.dir/Debug/test_cauchy.obj        |  Bin [31m0[m -> [32m580223[m bytes
+ .../Debug/test_cauchy.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m1192[m bytes
+ .../Debug/test_cauchy.tlog/CL.read.1.tlog          |  Bin [31m0[m -> [32m68100[m bytes
+ .../Debug/test_cauchy.tlog/CL.write.1.tlog         |  Bin [31m0[m -> [32m326[m bytes
+ .../Debug/test_cauchy.tlog/Cl.items.tlog           |    1 [32m+[m
+ .../test_cauchy.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../Debug/test_cauchy.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../test_cauchy.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Debug/test_cauchy.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1870[m bytes
+ .../Debug/test_cauchy.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m4500[m bytes
+ .../Debug/test_cauchy.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/test_cauchy.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m318[m bytes
+ .../test_cauchy.tlog/test_cauchy.lastbuildstate    |    2 [32m+[m
+ build/test_cauchy.dir/Debug/vc143.pdb              |  Bin [31m0[m -> [32m1462272[m bytes
+ .../test_cauchy.dir/Release/test_cauchy.exe.recipe |   14 [32m+[m
+ build/test_cauchy.dir/Release/test_cauchy.obj      |  Bin [31m0[m -> [32m186146[m bytes
+ .../Release/test_cauchy.tlog/CL.command.1.tlog     |  Bin [31m0[m -> [32m1202[m bytes
+ .../Release/test_cauchy.tlog/CL.read.1.tlog        |  Bin [31m0[m -> [32m68100[m bytes
+ .../Release/test_cauchy.tlog/CL.write.1.tlog       |  Bin [31m0[m -> [32m216[m bytes
+ .../Release/test_cauchy.tlog/Cl.items.tlog         |    1 [32m+[m
+ .../test_cauchy.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../test_cauchy.tlog/CustomBuild.read.1.tlog       |   37 [32m+[m
+ .../test_cauchy.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Release/test_cauchy.tlog/link.command.1.tlog   |  Bin [31m0[m -> [32m1808[m bytes
+ .../Release/test_cauchy.tlog/link.read.1.tlog      |  Bin [31m0[m -> [32m3826[m bytes
+ .../Release/test_cauchy.tlog/link.secondary.1.tlog |    1 [32m+[m
+ .../Release/test_cauchy.tlog/link.write.1.tlog     |  Bin [31m0[m -> [32m232[m bytes
+ .../test_cauchy.tlog/test_cauchy.lastbuildstate    |    2 [32m+[m
+ build/test_cauchy.vcxproj                          |  419 [32m++++[m
+ build/test_cauchy.vcxproj.filters                  |   16 [32m+[m
+ .../Debug/test_discretize.exe.recipe               |   14 [32m+[m
+ .../test_discretize.dir/Debug/test_discretize.ilk  |  Bin [31m0[m -> [32m13801545[m bytes
+ .../test_discretize.dir/Debug/test_discretize.obj  |  Bin [31m0[m -> [32m502160[m bytes
+ .../Debug/test_discretize.tlog/CL.command.1.tlog   |  Bin [31m0[m -> [32m1224[m bytes
+ .../Debug/test_discretize.tlog/CL.read.1.tlog      |  Bin [31m0[m -> [32m68116[m bytes
+ .../Debug/test_discretize.tlog/CL.write.1.tlog     |  Bin [31m0[m -> [32m358[m bytes
+ .../Debug/test_discretize.tlog/Cl.items.tlog       |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_discretize.tlog/CustomBuild.read.1.tlog   |   37 [32m+[m
+ .../test_discretize.tlog/CustomBuild.write.1.tlog  |    2 [32m+[m
+ .../Debug/test_discretize.tlog/link.command.1.tlog |  Bin [31m0[m -> [32m1942[m bytes
+ .../Debug/test_discretize.tlog/link.read.1.tlog    |  Bin [31m0[m -> [32m4540[m bytes
+ .../test_discretize.tlog/link.secondary.1.tlog     |    2 [32m+[m
+ .../Debug/test_discretize.tlog/link.write.1.tlog   |  Bin [31m0[m -> [32m350[m bytes
+ .../test_discretize.lastbuildstate                 |    2 [32m+[m
+ build/test_discretize.dir/Debug/vc143.pdb          |  Bin [31m0[m -> [32m1495040[m bytes
+ .../Release/test_discretize.exe.recipe             |   14 [32m+[m
+ .../Release/test_discretize.obj                    |  Bin [31m0[m -> [32m126303[m bytes
+ .../Release/test_discretize.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m1234[m bytes
+ .../Release/test_discretize.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m68116[m bytes
+ .../Release/test_discretize.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m240[m bytes
+ .../Release/test_discretize.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_discretize.tlog/CustomBuild.read.1.tlog   |   37 [32m+[m
+ .../test_discretize.tlog/CustomBuild.write.1.tlog  |    2 [32m+[m
+ .../test_discretize.tlog/link.command.1.tlog       |  Bin [31m0[m -> [32m1864[m bytes
+ .../Release/test_discretize.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m3858[m bytes
+ .../test_discretize.tlog/link.secondary.1.tlog     |    1 [32m+[m
+ .../Release/test_discretize.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m256[m bytes
+ .../test_discretize.lastbuildstate                 |    2 [32m+[m
+ build/test_discretize.vcxproj                      |  419 [32m++++[m
+ build/test_discretize.vcxproj.filters              |   16 [32m+[m
+ .../Debug/test_fre.36F3D4EE.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m1272[m bytes
+ .../Debug/test_fre.36F3D4EE.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m68140[m bytes
+ .../Debug/test_fre.36F3D4EE.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m406[m bytes
+ .../Debug/test_fre.36F3D4EE.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_fre.36F3D4EE.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../test_fre.36F3D4EE.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m2050[m bytes
+ .../Debug/test_fre.36F3D4EE.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m4600[m bytes
+ .../test_fre.36F3D4EE.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/test_fre.36F3D4EE.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m398[m bytes
+ .../test_frequency_points.lastbuildstate           |    2 [32m+[m
+ .../Debug/test_frequency_points.exe.recipe         |   14 [32m+[m
+ .../Debug/test_frequency_points.ilk                |  Bin [31m0[m -> [32m6496256[m bytes
+ .../Debug/test_frequency_points.obj                |  Bin [31m0[m -> [32m617059[m bytes
+ build/test_frequency_points.dir/Debug/vc143.pdb    |  Bin [31m0[m -> [32m1462272[m bytes
+ .../test_fre.36F3D4EE.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m1282[m bytes
+ .../Release/test_fre.36F3D4EE.tlog/CL.read.1.tlog  |  Bin [31m0[m -> [32m68140[m bytes
+ .../Release/test_fre.36F3D4EE.tlog/CL.write.1.tlog |  Bin [31m0[m -> [32m276[m bytes
+ .../Release/test_fre.36F3D4EE.tlog/Cl.items.tlog   |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_fre.36F3D4EE.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../test_fre.36F3D4EE.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1948[m bytes
+ .../test_fre.36F3D4EE.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m3906[m bytes
+ .../test_fre.36F3D4EE.tlog/link.secondary.1.tlog   |    1 [32m+[m
+ .../test_fre.36F3D4EE.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m292[m bytes
+ .../test_frequency_points.lastbuildstate           |    2 [32m+[m
+ .../Release/test_frequency_points.exe.recipe       |   14 [32m+[m
+ .../Release/test_frequency_points.obj              |  Bin [31m0[m -> [32m229307[m bytes
+ build/test_frequency_points.vcxproj                |  419 [32m++++[m
+ build/test_frequency_points.vcxproj.filters        |   16 [32m+[m
+ build/test_hippo.dir/Debug/test_hippo.exe.recipe   |   14 [32m+[m
+ build/test_hippo.dir/Debug/test_hippo.ilk          |  Bin [31m0[m -> [32m6548555[m bytes
+ build/test_hippo.dir/Debug/test_hippo.obj          |  Bin [31m0[m -> [32m614061[m bytes
+ .../Debug/test_hippo.tlog/CL.command.1.tlog        |  Bin [31m0[m -> [32m1184[m bytes
+ .../Debug/test_hippo.tlog/CL.read.1.tlog           |  Bin [31m0[m -> [32m68096[m bytes
+ .../Debug/test_hippo.tlog/CL.write.1.tlog          |  Bin [31m0[m -> [32m318[m bytes
+ .../Debug/test_hippo.tlog/Cl.items.tlog            |    1 [32m+[m
+ .../test_hippo.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../Debug/test_hippo.tlog/CustomBuild.read.1.tlog  |   37 [32m+[m
+ .../Debug/test_hippo.tlog/CustomBuild.write.1.tlog |    2 [32m+[m
+ .../Debug/test_hippo.tlog/link.command.1.tlog      |  Bin [31m0[m -> [32m1852[m bytes
+ .../Debug/test_hippo.tlog/link.read.1.tlog         |  Bin [31m0[m -> [32m4490[m bytes
+ .../Debug/test_hippo.tlog/link.secondary.1.tlog    |    2 [32m+[m
+ .../Debug/test_hippo.tlog/link.write.1.tlog        |  Bin [31m0[m -> [32m310[m bytes
+ .../test_hippo.tlog/test_hippo.lastbuildstate      |    2 [32m+[m
+ build/test_hippo.dir/Debug/vc143.pdb               |  Bin [31m0[m -> [32m1503232[m bytes
+ build/test_hippo.dir/Release/test_hippo.exe.recipe |   14 [32m+[m
+ build/test_hippo.dir/Release/test_hippo.obj        |  Bin [31m0[m -> [32m213676[m bytes
+ .../Release/test_hippo.tlog/CL.command.1.tlog      |  Bin [31m0[m -> [32m1194[m bytes
+ .../Release/test_hippo.tlog/CL.read.1.tlog         |  Bin [31m0[m -> [32m68096[m bytes
+ .../Release/test_hippo.tlog/CL.write.1.tlog        |  Bin [31m0[m -> [32m210[m bytes
+ .../Release/test_hippo.tlog/Cl.items.tlog          |    1 [32m+[m
+ .../test_hippo.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../test_hippo.tlog/CustomBuild.read.1.tlog        |   37 [32m+[m
+ .../test_hippo.tlog/CustomBuild.write.1.tlog       |    2 [32m+[m
+ .../Release/test_hippo.tlog/link.command.1.tlog    |  Bin [31m0[m -> [32m1794[m bytes
+ .../Release/test_hippo.tlog/link.read.1.tlog       |  Bin [31m0[m -> [32m3818[m bytes
+ .../Release/test_hippo.tlog/link.secondary.1.tlog  |    1 [32m+[m
+ .../Release/test_hippo.tlog/link.write.1.tlog      |  Bin [31m0[m -> [32m226[m bytes
+ .../test_hippo.tlog/test_hippo.lastbuildstate      |    2 [32m+[m
+ build/test_hippo.vcxproj                           |  419 [32m++++[m
+ build/test_hippo.vcxproj.filters                   |   16 [32m+[m
+ build/test_kernel.dir/Debug/test_kernel.exe.recipe |   14 [32m+[m
+ build/test_kernel.dir/Debug/test_kernel.ilk        |  Bin [31m0[m -> [32m7463052[m bytes
+ build/test_kernel.dir/Debug/test_kernel.obj        |  Bin [31m0[m -> [32m973430[m bytes
+ .../Debug/test_kernel.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m1192[m bytes
+ .../Debug/test_kernel.tlog/CL.read.1.tlog          |  Bin [31m0[m -> [32m68314[m bytes
+ .../Debug/test_kernel.tlog/CL.write.1.tlog         |  Bin [31m0[m -> [32m326[m bytes
+ .../Debug/test_kernel.tlog/Cl.items.tlog           |    1 [32m+[m
+ .../test_kernel.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../Debug/test_kernel.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../test_kernel.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Debug/test_kernel.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1870[m bytes
+ .../Debug/test_kernel.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m4500[m bytes
+ .../Debug/test_kernel.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/test_kernel.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m318[m bytes
+ .../test_kernel.tlog/test_kernel.lastbuildstate    |    2 [32m+[m
+ build/test_kernel.dir/Debug/vc143.pdb              |  Bin [31m0[m -> [32m1781760[m bytes
+ .../test_kernel.dir/Release/test_kernel.exe.recipe |   14 [32m+[m
+ build/test_kernel.dir/Release/test_kernel.obj      |  Bin [31m0[m -> [32m336984[m bytes
+ .../Release/test_kernel.tlog/CL.command.1.tlog     |  Bin [31m0[m -> [32m1202[m bytes
+ .../Release/test_kernel.tlog/CL.read.1.tlog        |  Bin [31m0[m -> [32m68314[m bytes
+ .../Release/test_kernel.tlog/CL.write.1.tlog       |  Bin [31m0[m -> [32m216[m bytes
+ .../Release/test_kernel.tlog/Cl.items.tlog         |    1 [32m+[m
+ .../test_kernel.tlog/CustomBuild.command.1.tlog    |   10 [32m+[m
+ .../test_kernel.tlog/CustomBuild.read.1.tlog       |   37 [32m+[m
+ .../test_kernel.tlog/CustomBuild.write.1.tlog      |    2 [32m+[m
+ .../Release/test_kernel.tlog/link.command.1.tlog   |  Bin [31m0[m -> [32m1808[m bytes
+ .../Release/test_kernel.tlog/link.read.1.tlog      |  Bin [31m0[m -> [32m3826[m bytes
+ .../Release/test_kernel.tlog/link.secondary.1.tlog |    1 [32m+[m
+ .../Release/test_kernel.tlog/link.write.1.tlog     |  Bin [31m0[m -> [32m232[m bytes
+ .../test_kernel.tlog/test_kernel.lastbuildstate    |    2 [32m+[m
+ build/test_kernel.vcxproj                          |  419 [32m++++[m
+ build/test_kernel.vcxproj.filters                  |   16 [32m+[m
+ .../Debug/test_ker.EC057429.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m1142[m bytes
+ .../Debug/test_ker.EC057429.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m68622[m bytes
+ .../Debug/test_ker.EC057429.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m414[m bytes
+ .../Debug/test_ker.EC057429.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_ker.EC057429.tlog/CustomBuild.read.1.tlog |   32 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../test_ker.EC057429.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1500[m bytes
+ .../Debug/test_ker.EC057429.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m3428[m bytes
+ .../test_ker.EC057429.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/test_ker.EC057429.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m406[m bytes
+ .../test_kernel_comparison.lastbuildstate          |    2 [32m+[m
+ .../Debug/test_kernel_comparison.exe.recipe        |   14 [32m+[m
+ .../Debug/test_kernel_comparison.ilk               |  Bin [31m0[m -> [32m20574584[m bytes
+ .../Debug/test_kernel_comparison.obj               |  Bin [31m0[m -> [32m668658[m bytes
+ build/test_kernel_comparison.dir/Debug/vc143.pdb   |  Bin [31m0[m -> [32m1830912[m bytes
+ build/test_kernel_comparison.vcxproj               |  401 [32m++++[m
+ build/test_kernel_comparison.vcxproj.filters       |   16 [32m+[m
+ build/test_nplr.dir/Debug/test_nplr.exe.recipe     |   14 [32m+[m
+ build/test_nplr.dir/Debug/test_nplr.ilk            |  Bin [31m0[m -> [32m12946935[m bytes
+ build/test_nplr.dir/Debug/test_nplr.obj            |  Bin [31m0[m -> [32m3336026[m bytes
+ .../Debug/test_nplr.tlog/CL.command.1.tlog         |  Bin [31m0[m -> [32m1176[m bytes
+ .../Debug/test_nplr.tlog/CL.read.1.tlog            |  Bin [31m0[m -> [32m68184[m bytes
+ .../Debug/test_nplr.tlog/CL.write.1.tlog           |  Bin [31m0[m -> [32m310[m bytes
+ .../Debug/test_nplr.tlog/Cl.items.tlog             |    1 [32m+[m
+ .../test_nplr.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../Debug/test_nplr.tlog/CustomBuild.read.1.tlog   |   37 [32m+[m
+ .../Debug/test_nplr.tlog/CustomBuild.write.1.tlog  |    2 [32m+[m
+ .../Debug/test_nplr.tlog/link.command.1.tlog       |  Bin [31m0[m -> [32m1834[m bytes
+ .../Debug/test_nplr.tlog/link.read.1.tlog          |  Bin [31m0[m -> [32m4480[m bytes
+ .../Debug/test_nplr.tlog/link.secondary.1.tlog     |    2 [32m+[m
+ .../Debug/test_nplr.tlog/link.write.1.tlog         |  Bin [31m0[m -> [32m302[m bytes
+ .../Debug/test_nplr.tlog/test_nplr.lastbuildstate  |    2 [32m+[m
+ build/test_nplr.dir/Debug/vc143.pdb                |  Bin [31m0[m -> [32m5140480[m bytes
+ build/test_nplr.dir/Release/test_nplr.exe.recipe   |   14 [32m+[m
+ build/test_nplr.dir/Release/test_nplr.obj          |  Bin [31m0[m -> [32m1203449[m bytes
+ .../Release/test_nplr.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m1186[m bytes
+ .../Release/test_nplr.tlog/CL.read.1.tlog          |  Bin [31m0[m -> [32m68184[m bytes
+ .../Release/test_nplr.tlog/CL.write.1.tlog         |  Bin [31m0[m -> [32m204[m bytes
+ .../Release/test_nplr.tlog/Cl.items.tlog           |    1 [32m+[m
+ .../test_nplr.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../Release/test_nplr.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../test_nplr.tlog/CustomBuild.write.1.tlog        |    2 [32m+[m
+ .../Release/test_nplr.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1780[m bytes
+ .../Release/test_nplr.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m3810[m bytes
+ .../Release/test_nplr.tlog/link.secondary.1.tlog   |    1 [32m+[m
+ .../Release/test_nplr.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m220[m bytes
+ .../test_nplr.tlog/test_nplr.lastbuildstate        |    2 [32m+[m
+ build/test_nplr.vcxproj                            |  419 [32m++++[m
+ build/test_nplr.vcxproj.filters                    |   16 [32m+[m
+ .../Debug/test_resolvent.exe.recipe                |   14 [32m+[m
+ build/test_resolvent.dir/Debug/test_resolvent.ilk  |  Bin [31m0[m -> [32m8665961[m bytes
+ build/test_resolvent.dir/Debug/test_resolvent.obj  |  Bin [31m0[m -> [32m709687[m bytes
+ .../Debug/test_resolvent.tlog/CL.command.1.tlog    |  Bin [31m0[m -> [32m1216[m bytes
+ .../Debug/test_resolvent.tlog/CL.read.1.tlog       |  Bin [31m0[m -> [32m68112[m bytes
+ .../Debug/test_resolvent.tlog/CL.write.1.tlog      |  Bin [31m0[m -> [32m350[m bytes
+ .../Debug/test_resolvent.tlog/Cl.items.tlog        |    1 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../Debug/test_resolvent.tlog/link.command.1.tlog  |  Bin [31m0[m -> [32m1924[m bytes
+ .../Debug/test_resolvent.tlog/link.read.1.tlog     |  Bin [31m0[m -> [32m4530[m bytes
+ .../test_resolvent.tlog/link.secondary.1.tlog      |    2 [32m+[m
+ .../Debug/test_resolvent.tlog/link.write.1.tlog    |  Bin [31m0[m -> [32m342[m bytes
+ .../test_resolvent.lastbuildstate                  |    2 [32m+[m
+ build/test_resolvent.dir/Debug/vc143.pdb           |  Bin [31m0[m -> [32m1601536[m bytes
+ .../Release/test_resolvent.exe.recipe              |   14 [32m+[m
+ .../test_resolvent.dir/Release/test_resolvent.obj  |  Bin [31m0[m -> [32m234227[m bytes
+ .../Release/test_resolvent.tlog/CL.command.1.tlog  |  Bin [31m0[m -> [32m1226[m bytes
+ .../Release/test_resolvent.tlog/CL.read.1.tlog     |  Bin [31m0[m -> [32m68112[m bytes
+ .../Release/test_resolvent.tlog/CL.write.1.tlog    |  Bin [31m0[m -> [32m234[m bytes
+ .../Release/test_resolvent.tlog/Cl.items.tlog      |    1 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../test_resolvent.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../test_resolvent.tlog/link.command.1.tlog        |  Bin [31m0[m -> [32m1850[m bytes
+ .../Release/test_resolvent.tlog/link.read.1.tlog   |  Bin [31m0[m -> [32m3850[m bytes
+ .../test_resolvent.tlog/link.secondary.1.tlog      |    1 [32m+[m
+ .../Release/test_resolvent.tlog/link.write.1.tlog  |  Bin [31m0[m -> [32m250[m bytes
+ .../test_resolvent.lastbuildstate                  |    2 [32m+[m
+ build/test_resolvent.vcxproj                       |  419 [32m++++[m
+ build/test_resolvent.vcxproj.filters               |   16 [32m+[m
+ .../Debug/test_s4_kernel.exe.recipe                |   14 [32m+[m
+ build/test_s4_kernel.dir/Debug/test_s4_kernel.ilk  |  Bin [31m0[m -> [32m20023200[m bytes
+ build/test_s4_kernel.dir/Debug/test_s4_kernel.obj  |  Bin [31m0[m -> [32m774681[m bytes
+ .../Debug/test_s4_kernel.tlog/CL.command.1.tlog    |  Bin [31m0[m -> [32m1216[m bytes
+ .../Debug/test_s4_kernel.tlog/CL.read.1.tlog       |  Bin [31m0[m -> [32m68700[m bytes
+ .../Debug/test_s4_kernel.tlog/CL.write.1.tlog      |  Bin [31m0[m -> [32m350[m bytes
+ .../Debug/test_s4_kernel.tlog/Cl.items.tlog        |    1 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../Debug/test_s4_kernel.tlog/link.command.1.tlog  |  Bin [31m0[m -> [32m1924[m bytes
+ .../Debug/test_s4_kernel.tlog/link.read.1.tlog     |  Bin [31m0[m -> [32m4530[m bytes
+ .../test_s4_kernel.tlog/link.secondary.1.tlog      |    2 [32m+[m
+ .../Debug/test_s4_kernel.tlog/link.write.1.tlog    |  Bin [31m0[m -> [32m342[m bytes
+ .../test_s4_kernel.lastbuildstate                  |    2 [32m+[m
+ build/test_s4_kernel.dir/Debug/vc143.pdb           |  Bin [31m0[m -> [32m2158592[m bytes
+ .../Release/test_s4_kernel.exe.recipe              |   14 [32m+[m
+ .../test_s4_kernel.dir/Release/test_s4_kernel.obj  |  Bin [31m0[m -> [32m295637[m bytes
+ .../Release/test_s4_kernel.tlog/CL.command.1.tlog  |  Bin [31m0[m -> [32m1226[m bytes
+ .../Release/test_s4_kernel.tlog/CL.read.1.tlog     |  Bin [31m0[m -> [32m68700[m bytes
+ .../Release/test_s4_kernel.tlog/CL.write.1.tlog    |  Bin [31m0[m -> [32m234[m bytes
+ .../Release/test_s4_kernel.tlog/Cl.items.tlog      |    1 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../test_s4_kernel.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../test_s4_kernel.tlog/link.command.1.tlog        |  Bin [31m0[m -> [32m1850[m bytes
+ .../Release/test_s4_kernel.tlog/link.read.1.tlog   |  Bin [31m0[m -> [32m3850[m bytes
+ .../test_s4_kernel.tlog/link.secondary.1.tlog      |    1 [32m+[m
+ .../Release/test_s4_kernel.tlog/link.write.1.tlog  |  Bin [31m0[m -> [32m250[m bytes
+ .../test_s4_kernel.lastbuildstate                  |    2 [32m+[m
+ build/test_s4_kernel.vcxproj                       |  419 [32m++++[m
+ build/test_s4_kernel.vcxproj.filters               |   16 [32m+[m
+ .../Debug/test_s4_.630F935E.tlog/CL.command.1.tlog |  Bin [31m0[m -> [32m1240[m bytes
+ .../Debug/test_s4_.630F935E.tlog/CL.read.1.tlog    |  Bin [31m0[m -> [32m68406[m bytes
+ .../Debug/test_s4_.630F935E.tlog/CL.write.1.tlog   |  Bin [31m0[m -> [32m374[m bytes
+ .../Debug/test_s4_.630F935E.tlog/Cl.items.tlog     |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_s4_.630F935E.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../test_s4_.630F935E.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1978[m bytes
+ .../Debug/test_s4_.630F935E.tlog/link.read.1.tlog  |  Bin [31m0[m -> [32m4560[m bytes
+ .../test_s4_.630F935E.tlog/link.secondary.1.tlog   |    2 [32m+[m
+ .../Debug/test_s4_.630F935E.tlog/link.write.1.tlog |  Bin [31m0[m -> [32m366[m bytes
+ .../test_s4_resolvent.lastbuildstate               |    2 [32m+[m
+ .../Debug/test_s4_resolvent.exe.recipe             |   14 [32m+[m
+ .../Debug/test_s4_resolvent.ilk                    |  Bin [31m0[m -> [32m14493424[m bytes
+ .../Debug/test_s4_resolvent.obj                    |  Bin [31m0[m -> [32m1195475[m bytes
+ build/test_s4_resolvent.dir/Debug/vc143.pdb        |  Bin [31m0[m -> [32m2379776[m bytes
+ .../test_s4_.630F935E.tlog/CL.command.1.tlog       |  Bin [31m0[m -> [32m1250[m bytes
+ .../Release/test_s4_.630F935E.tlog/CL.read.1.tlog  |  Bin [31m0[m -> [32m68406[m bytes
+ .../Release/test_s4_.630F935E.tlog/CL.write.1.tlog |  Bin [31m0[m -> [32m252[m bytes
+ .../Release/test_s4_.630F935E.tlog/Cl.items.tlog   |    1 [32m+[m
+ .../CustomBuild.command.1.tlog                     |   10 [32m+[m
+ .../test_s4_.630F935E.tlog/CustomBuild.read.1.tlog |   37 [32m+[m
+ .../CustomBuild.write.1.tlog                       |    2 [32m+[m
+ .../test_s4_.630F935E.tlog/link.command.1.tlog     |  Bin [31m0[m -> [32m1892[m bytes
+ .../test_s4_.630F935E.tlog/link.read.1.tlog        |  Bin [31m0[m -> [32m3874[m bytes
+ .../test_s4_.630F935E.tlog/link.secondary.1.tlog   |    1 [32m+[m
+ .../test_s4_.630F935E.tlog/link.write.1.tlog       |  Bin [31m0[m -> [32m268[m bytes
+ .../test_s4_resolvent.lastbuildstate               |    2 [32m+[m
+ .../Release/test_s4_resolvent.exe.recipe           |   14 [32m+[m
+ .../Release/test_s4_resolvent.obj                  |  Bin [31m0[m -> [32m495697[m bytes
+ build/test_s4_resolvent.vcxproj                    |  419 [32m++++[m
+ build/test_s4_resolvent.vcxproj.filters            |   16 [32m+[m
+ build/test_ssm.dir/Debug/test_ssm.exe.recipe       |   14 [32m+[m
+ build/test_ssm.dir/Debug/test_ssm.ilk              |  Bin [31m0[m -> [32m6171179[m bytes
+ build/test_ssm.dir/Debug/test_ssm.obj              |  Bin [31m0[m -> [32m854[m bytes
+ .../Debug/test_ssm.tlog/CL.command.1.tlog          |  Bin [31m0[m -> [32m1168[m bytes
+ .../Debug/test_ssm.tlog/CL.read.1.tlog             |  Bin [31m0[m -> [32m482[m bytes
+ .../Debug/test_ssm.tlog/CL.write.1.tlog            |  Bin [31m0[m -> [32m302[m bytes
+ .../test_ssm.dir/Debug/test_ssm.tlog/Cl.items.tlog |    1 [32m+[m
+ .../Debug/test_ssm.tlog/CustomBuild.command.1.tlog |   10 [32m+[m
+ .../Debug/test_ssm.tlog/CustomBuild.read.1.tlog    |   37 [32m+[m
+ .../Debug/test_ssm.tlog/CustomBuild.write.1.tlog   |    2 [32m+[m
+ .../Debug/test_ssm.tlog/link.command.1.tlog        |  Bin [31m0[m -> [32m1816[m bytes
+ .../Debug/test_ssm.tlog/link.read.1.tlog           |  Bin [31m0[m -> [32m4470[m bytes
+ .../Debug/test_ssm.tlog/link.secondary.1.tlog      |    2 [32m+[m
+ .../Debug/test_ssm.tlog/link.write.1.tlog          |  Bin [31m0[m -> [32m294[m bytes
+ .../Debug/test_ssm.tlog/test_ssm.lastbuildstate    |    2 [32m+[m
+ build/test_ssm.dir/Debug/vc143.pdb                 |  Bin [31m0[m -> [32m86016[m bytes
+ build/test_ssm.dir/Release/test_ssm.exe.recipe     |   14 [32m+[m
+ build/test_ssm.dir/Release/test_ssm.obj            |  Bin [31m0[m -> [32m517[m bytes
+ .../Release/test_ssm.tlog/CL.command.1.tlog        |  Bin [31m0[m -> [32m1178[m bytes
+ .../Release/test_ssm.tlog/CL.read.1.tlog           |  Bin [31m0[m -> [32m482[m bytes
+ .../Release/test_ssm.tlog/CL.write.1.tlog          |  Bin [31m0[m -> [32m198[m bytes
+ .../Release/test_ssm.tlog/Cl.items.tlog            |    1 [32m+[m
+ .../test_ssm.tlog/CustomBuild.command.1.tlog       |   10 [32m+[m
+ .../Release/test_ssm.tlog/CustomBuild.read.1.tlog  |   37 [32m+[m
+ .../Release/test_ssm.tlog/CustomBuild.write.1.tlog |    2 [32m+[m
+ .../Release/test_ssm.tlog/link.command.1.tlog      |  Bin [31m0[m -> [32m1766[m bytes
+ .../Release/test_ssm.tlog/link.read.1.tlog         |  Bin [31m0[m -> [32m3802[m bytes
+ .../Release/test_ssm.tlog/link.secondary.1.tlog    |    1 [32m+[m
+ .../Release/test_ssm.tlog/link.write.1.tlog        |  Bin [31m0[m -> [32m214[m bytes
+ .../Release/test_ssm.tlog/test_ssm.lastbuildstate  |    2 [32m+[m
+ build/test_ssm.vcxproj                             |  419 [32m++++[m
+ build/test_ssm.vcxproj.filters                     |   16 [32m+[m
+ build/x64/Debug/ALL_BUILD/ALL_BUILD.recipe         |   53 [32m+[m
+ .../ALL_BUILD.tlog/ALL_BUILD.lastbuildstate        |    2 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.read.1.tlog         |   37 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.write.1.tlog        |    2 [32m+[m
+ build/x64/Debug/ZERO_CHECK/ZERO_CHECK.recipe       |   11 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.read.1.tlog        |   69 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.write.1.tlog       |    9 [32m+[m
+ .../ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate      |    2 [32m+[m
+ build/x64/Release/ALL_BUILD/ALL_BUILD.recipe       |   53 [32m+[m
+ .../ALL_BUILD.tlog/ALL_BUILD.lastbuildstate        |    2 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.command.1.tlog      |   10 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.read.1.tlog         |   37 [32m+[m
+ .../ALL_BUILD.tlog/CustomBuild.write.1.tlog        |    2 [32m+[m
+ build/x64/Release/ZERO_CHECK/ZERO_CHECK.recipe     |   11 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.command.1.tlog     |   10 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.read.1.tlog        |   69 [32m+[m
+ .../ZERO_CHECK.tlog/CustomBuild.write.1.tlog       |    9 [32m+[m
+ .../ZERO_CHECK.tlog/ZERO_CHECK.lastbuildstate      |    2 [32m+[m
+ cmake/CompilerWarnings.cmake                       |    0
+ cmake/s4Config.cmake.in                            |    0
+ docs/architecture.md                               |    0
+ include/ssmforge/backend/fft.hpp                   |    0
+ include/ssmforge/backend/simd.hpp                  |    0
+ include/ssmforge/bilinear.hpp                      |   20 [32m+[m
+ include/ssmforge/cauchy.hpp                        |   23 [32m+[m
+ include/ssmforge/cuda_kernel.hpp                   |   26 [32m+[m
+ include/ssmforge/discrete_kernel.hpp               |   27 [32m+[m
+ include/ssmforge/discretize.hpp                    |   35 [32m+[m
+ include/ssmforge/frequency_points.hpp              |   18 [32m+[m
+ include/ssmforge/hippo.hpp                         |   21 [32m+[m
+ include/ssmforge/kernel.hpp                        |   26 [32m+[m
+ include/ssmforge/nplr.hpp                          |   73 [32m+[m
+ include/ssmforge/resolvent.hpp                     |   25 [32m+[m
+ include/ssmforge/s4_kernel.hpp                     |   25 [32m+[m
+ include/ssmforge/s4_resolvent.hpp                  |   31 [32m+[m
+ include/ssmforge/ssm.hpp                           |    0
+ src/bilinear.cpp                                   |   33 [32m+[m
+ src/cauchy.cpp                                     |   53 [32m+[m
+ src/cuda_kernel.cu                                 |  393 [32m++++[m
+ src/discrete_kernel.cpp                            |   34 [32m+[m
+ src/discretize.cpp                                 |   55 [32m+[m
+ src/frequency_points.cpp                           |   24 [32m+[m
+ src/hippo.cpp                                      |   57 [32m+[m
+ src/kernel.cpp                                     |   86 [32m+[m
+ src/nplr.cpp                                       |  219 [32m++[m
+ src/resolvent.cpp                                  |   44 [32m+[m
+ src/s4_kernel.cpp                                  |  252 [32m+++[m
+ src/s4_resolvent.cpp                               |  184 [32m++[m
+ src/ssm.cpp                                        |    0
+ tests/test_bilinear.cpp                            |   84 [32m+[m
+ tests/test_cauchy.cpp                              |  155 [32m++[m
+ tests/test_discretize.cpp                          |   46 [32m+[m
+ tests/test_frequency_points.cpp                    |   70 [32m+[m
+ tests/test_hippo.cpp                               |  128 [32m++[m
+ tests/test_kernel.cpp                              |  222 [32m++[m
+ tests/test_kernel_comparison.cpp                   |   78 [32m+[m
+ tests/test_nplr.cpp                                |  141 [32m++[m
+ tests/test_resolvent.cpp                           |  198 [32m++[m
+ tests/test_s4_kernel.cpp                           |  124 [32m++[m
+ tests/test_s4_resolvent.cpp                        |  196 [32m++[m
+ tests/test_ssm.cpp                                 |    0
+ 1067 files changed, 33781 insertions(+)
