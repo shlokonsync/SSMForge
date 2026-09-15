@@ -1,0 +1,26 @@
+# CMake build output
+build/
+
+# Visual Studio and VS Code files
+.vs/
+.vscode/
+
+# Compiled binaries and intermediate files
+*.exe
+*.dll
+*.lib
+*.exp
+*.obj
+*.pdb
+*.ilk
+
+# CMake-generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Temporary files
+*.tmp
+*.log
