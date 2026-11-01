@@ -23,8 +23,6 @@ int main()
     std::cout << "========================\n";
     std::cout << "State size N: " << N << "\n";
     std::cout << "Kernel length L: " << L << "\n";
-     std::cout << "Using strided CUDA implementation, stride = "
-          << stride << '\n';
     std::cout << "Time step dt: " << dt << "\n\n";
 
     auto hippo = ssmforge::hippo_legs(N);

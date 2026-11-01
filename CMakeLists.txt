@@ -29,6 +29,8 @@ option(SSMFORGE_BUILD_TESTS "Build tests" ON)
 # Dependencies
 # --------------------------------------------------
 
+find_package(CUDAToolkit REQUIRED)
+
 include(FetchContent)
 
 # -------------------------
@@ -101,6 +103,9 @@ add_library(ssmforge
 
     #cuda kernel
     src/cuda_kernel.cu
+
+    #cuda s4 kernel
+    src/cuda_s4_kernel.cu
 )
 
 # Tell users of the library where our header files are.
@@ -109,10 +114,11 @@ target_include_directories(ssmforge
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# SSMForge uses Eigen for matrix/vector operations.
+# SSMForge uses Eigen for matrix/vector operations and cuFFT for CUDA FFT.
 target_link_libraries(ssmforge
     PUBLIC
         Eigen3::Eigen
+        CUDA::cufft
 )
 target_include_directories(ssmforge
     PUBLIC
@@ -342,6 +348,63 @@ add_test(
     add_test(
         NAME S4KernelTests
         COMMAND test_s4_kernel
+    )
+
+    # -------------------------
+    # Kernel comparison tests
+    # -------------------------
+
+    add_executable(test_kernel_comparison
+        tests/test_kernel_comparison.cpp
+    )
+
+    target_link_libraries(test_kernel_comparison
+        PRIVATE
+            ssmforge
+            GTest::gtest_main
+    )
+
+    add_test(
+        NAME KernelComparisonTests
+        COMMAND test_kernel_comparison
+    )
+
+    # -------------------------
+    # CUDA kernel tests
+    # -------------------------
+
+    add_executable(test_cuda_kernel
+        tests/test_cuda_kernel.cpp
+    )
+
+    target_link_libraries(test_cuda_kernel
+        PRIVATE
+            ssmforge
+            GTest::gtest_main
+    )
+
+    add_test(
+        NAME CudaKernelTests
+        COMMAND test_cuda_kernel
+    )
+
+    # -------------------------
+    # CUDA S4 kernel tests
+    # -------------------------
+
+    add_executable(test_cuda_s4_kernel
+        tests/test_cuda_s4_kernel.cpp
+    )
+
+    target_link_libraries(test_cuda_s4_kernel
+        PRIVATE
+            ssmforge
+            GTest::gtest_main
+    )
+
+    add_test(
+        NAME CudaS4KernelTests
+        COMMAND test_cuda_s4_kernel
     )
 
 endif()
