@@ -1,5 +1,8 @@
 # CMake build output
 build/
+install/
+external_deps/
+examples/**/build/
 
 # Visual Studio and VS Code files
 .vs/
